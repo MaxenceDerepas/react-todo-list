@@ -6,10 +6,11 @@ const Main = () => {
     const [inputChange, setInputChange] = useState("");
     const [check, setCheck] = useState([]);
 
+    // fonction qui change l'etat de l'input text
     const changeInput = (event) => {
         setInputChange(event.target.value);
     };
-
+    // fonction qui ajoute une tache a la liste
     const submit = (event) => {
         if (inputChange !== "") {
             event.preventDefault();
@@ -29,6 +30,7 @@ const Main = () => {
         <section>
             <div>
                 {tasks.map((elem, index) => {
+                    // fonction qui supprime une tache de la liste
                     const clickDelete = () => {
                         const newTasks = [...tasks];
                         newTasks.splice(index, 1);
@@ -38,6 +40,8 @@ const Main = () => {
                         newCheck.splice(index, 1);
                         setCheck(newCheck);
                     };
+
+                    // fonction qui change l'etat des checkbox
                     const clickCheck = () => {
                         if (check[index] === false) {
                             const newCheck = [...check];
@@ -55,12 +59,12 @@ const Main = () => {
                             elem={elem}
                             key={index}
                             check={check[index]}
-                            setCheck={setCheck}
                             clickCheck={clickCheck}
                             clickDelete={clickDelete}
                         />
                     );
                 })}
+                {/* ------ partie input ------ */}
             </div>
             <form onSubmit={submit}>
                 <input
