@@ -14,7 +14,7 @@ const Main = () => {
         if (inputChange !== "") {
             event.preventDefault();
             const newTasks = [...tasks];
-            newTasks.push({ tache: inputChange, checkbox: false });
+            newTasks.push({ tache: inputChange });
             setTasks(newTasks);
             setInputChange("");
         }
@@ -32,25 +32,10 @@ const Main = () => {
                         setTasks(newTasks);
                     };
 
-                    // fonction qui change l'etat des checkbox
-                    const clickCheck = () => {
-                        if (tasks[index].checkbox === false) {
-                            const newCheck = [...tasks];
-                            newCheck[index].checkbox = true;
-                            setTasks(newCheck);
-                        } else {
-                            const newCheck = [...tasks];
-                            newCheck[index].checkbox = false;
-                            setTasks(newCheck);
-                        }
-                    };
-
                     return (
                         <Task
                             elem={elem}
                             key={index}
-                            check={tasks[index].checkbox}
-                            clickCheck={clickCheck}
                             clickDelete={clickDelete}
                         />
                     );

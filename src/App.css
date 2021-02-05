@@ -21,7 +21,7 @@ header img {
     justify-content: center;
     padding-top: 121px;
 }
-.liste {
+.listes > span {
     font-size: 28px;
     font-weight: 400;
     margin: 6px 20px;
