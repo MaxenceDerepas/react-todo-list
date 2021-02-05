@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+body {
+    font-family: "Montserrat", sans-serif;
+}
+/* partie HEADER */
+header {
+    height: 193px;
+    display: flex;
+    align-items: center;
+    font-size: 48px;
+    font-weight: 400;
+    border-bottom: 1px solid #e5e5e5;
+    padding-left: 69px;
+}
+header img {
+    margin-right: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* partie Main */
+.main {
+    display: flex;
+    justify-content: center;
+    padding-top: 121px;
+}
+.liste {
+    font-size: 28px;
+    font-weight: 400;
+    margin: 6px 20px;
+}
+.listes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listes > img {
+    cursor: pointer;
+}
+.button-form {
+    background-color: #5c48d3;
+    height: 65px;
+    width: 130px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 22px;
+}
+.button-form:hover {
+    cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input-form {
+    height: 65px;
+    width: 548px;
+    margin-top: 148px;
+    border-radius: 10px;
+    background-color: #f2f7fd;
+    border: 1px solid #5c48d3;
+    margin-right: 57px;
+    padding-left: 25px;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-weight: 400;
+    color: #a8a8a8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* partie Footer */
+footer {
+    margin-top: 101px;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer span {
+    font-weight: 700;
 }
