@@ -4,7 +4,6 @@ import { useState } from "react";
 const Main = () => {
     const [tasks, setTasks] = useState([]);
     const [inputChange, setInputChange] = useState("");
-    const [check, setCheck] = useState([]);
 
     // fonction qui change l'etat de l'input text
     const changeInput = (event) => {
@@ -15,13 +14,9 @@ const Main = () => {
         if (inputChange !== "") {
             event.preventDefault();
             const newTasks = [...tasks];
-            newTasks.push(inputChange);
+            newTasks.push({ tache: inputChange, checkbox: false });
             setTasks(newTasks);
             setInputChange("");
-
-            const newCheck = [...check];
-            newCheck.push(false);
-            setCheck(newCheck);
         }
         event.preventDefault();
     };
@@ -35,22 +30,18 @@ const Main = () => {
                         const newTasks = [...tasks];
                         newTasks.splice(index, 1);
                         setTasks(newTasks);
-
-                        const newCheck = [...check];
-                        newCheck.splice(index, 1);
-                        setCheck(newCheck);
                     };
 
                     // fonction qui change l'etat des checkbox
                     const clickCheck = () => {
-                        if (check[index] === false) {
-                            const newCheck = [...check];
-                            newCheck.splice(index, 1, true);
-                            setCheck(newCheck);
+                        if (tasks[index].checkbox === false) {
+                            const newCheck = [...tasks];
+                            newCheck[index].checkbox = true;
+                            setTasks(newCheck);
                         } else {
-                            const newCheck = [...check];
-                            newCheck.splice(index, 1, false);
-                            setCheck(newCheck);
+                            const newCheck = [...tasks];
+                            newCheck[index].checkbox = false;
+                            setTasks(newCheck);
                         }
                     };
 
@@ -58,7 +49,7 @@ const Main = () => {
                         <Task
                             elem={elem}
                             key={index}
-                            check={check[index]}
+                            check={tasks[index].checkbox}
                             clickCheck={clickCheck}
                             clickDelete={clickDelete}
                         />
