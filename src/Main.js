@@ -35,7 +35,7 @@ const Main = () => {
                 {tasks.map((elem, index) => {
                     const clickDelete = () => {
                         const newTasks = [...tasks];
-                        newTasks.splice(index);
+                        newTasks.splice(index, 1);
                         setTasks(newTasks);
                     };
 
