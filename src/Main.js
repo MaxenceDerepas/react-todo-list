@@ -14,7 +14,7 @@ const Main = () => {
         if (inputChange !== "") {
             event.preventDefault();
             const newTasks = [...tasks];
-            newTasks.push({ tache: inputChange });
+            newTasks.push({ tache: inputChange, checkbox: false });
             setTasks(newTasks);
             setInputChange("");
         }
@@ -31,12 +31,25 @@ const Main = () => {
                         newTasks.splice(index, 1);
                         setTasks(newTasks);
                     };
+                    const clickCheck = () => {
+                        if (tasks[index].checkbox === false) {
+                            const newTask = [...tasks];
+                            newTask[index].checkbox = true;
+                            setTasks(newTask);
+                        } else {
+                            const newTask = [...tasks];
+                            newTask[index].checkbox = false;
+                            setTasks(newTask);
+                        }
+                    };
 
                     return (
                         <Task
                             elem={elem}
                             key={index}
                             clickDelete={clickDelete}
+                            clickCheck={clickCheck}
+                            check={tasks[index].checkbox}
                         />
                     );
                 })}

@@ -1,15 +1,6 @@
 import Delete from "./assets/images/delete.png";
-import { useState } from "react";
 
-const Task = ({ elem, clickDelete }) => {
-    const [check, setCheck] = useState(false);
-    const clickCheck = () => {
-        if (check === true) {
-            setCheck(false);
-        } else {
-            setCheck(true);
-        }
-    };
+const Task = ({ elem, clickDelete, check, clickCheck }) => {
     return (
         <div className="listes">
             <input type="checkbox" onChange={clickCheck} />
